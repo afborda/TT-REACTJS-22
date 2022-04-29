@@ -7,12 +7,19 @@ function App() {
   const [filmes, setFilmes] = useState([]);
   const [soma, setSoma] = useState(0);
 
-  const buscaValor = () => {
-    fetch("https://61d3bc23b4c10c001712ba53.mockapi.io/tasks")
-      .then((response) => response.json())
-      .then((data) => {
-        setFilmes(data);
-      });
+  const buscaValor = async () => {
+    // fetch("https://61d3bc23b4c10c001712ba53.mockapi.io/tasks")
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     setFilmes(data);
+    //   });
+
+    const response = await fetch(
+      "https://61d3bc23b4c10c001712ba53.mockapi.io/tasks"
+    );
+    const data = await response.json();
+
+    setFilmes(data);
   };
 
   useEffect(() => {
@@ -36,7 +43,11 @@ function App() {
 
       <div className="container-app">
         {filmes.map((item) => {
-          return <CardMovie movie={item} />;
+          return (
+            <div key={item.id}>
+              <CardMovie movie={item} />
+            </div>
+          );
         })}
       </div>
       <button onClick={() => setContador(contador + 1)}>Somar</button>

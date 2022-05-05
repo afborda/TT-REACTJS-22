@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import {
   Container,
@@ -18,9 +19,9 @@ function Nav() {
         />
       </ContainerImage>
       <NavStyle>
-        <LinkStyle href="/">Home</LinkStyle>
-        <LinkStyle href="/">Filmes</LinkStyle>
-        <LinkStyle href="/">Login</LinkStyle>
+        <Link to="/">Home</Link>
+        <Link to="filmes">Filmes</Link>
+        <Link to="/">Login</Link>
       </NavStyle>
     </Container>
   );

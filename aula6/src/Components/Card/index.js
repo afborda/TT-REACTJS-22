@@ -1,13 +1,7 @@
 import React from "react";
+import { Button } from "../../style/global";
 
-import {
-  Container,
-  ContainerImage,
-  Img,
-  Title,
-  SubTitle,
-  Button
-} from "./styled";
+import { Container, ContainerImage, Img, Title, SubTitle } from "./styled";
 
 function Card({ filme }) {
   return (
@@ -15,10 +9,8 @@ function Card({ filme }) {
       <ContainerImage>
         <Img src={filme.Poster} alt={filme.Title} />
       </ContainerImage>
-
       <Title>{filme.Title}</Title>
       <SubTitle>Tipo: {filme.Type}</SubTitle>
-      <Button> Saiba Mais</Button>
     </Container>
   );
 }

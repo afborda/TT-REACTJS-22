@@ -25,10 +25,3 @@ export const Title = styled.h2`
 export const SubTitle = styled.p`
   font-size: 16px;
 `;
-export const Button = styled.button`
-  color: #000;
-  border: none;
-  width: 200px;
-  height: 60px;
-  border-radius: 5px;
-`;

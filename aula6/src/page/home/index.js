@@ -46,10 +46,11 @@ function Home() {
         {filmes.map((item) => {
           return (
             <div key={item.imdbID}>
-              <Card filme={item} />
-              <button onClick={() => handleGetDetails(item.imdbID)}>
-                Saiba mais
-              </button>
+              <Card
+                filme={item}
+                textButton="Saiba mais"
+                onClick={() => handleGetDetails(item.imdbID)}
+              />
             </div>
           );
         })}

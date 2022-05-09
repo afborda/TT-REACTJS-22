@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -20,7 +21,7 @@ export const NavStyle = styled.nav`
   margin-right: 10px;
 `;
 
-export const LinkStyle = styled.a`
+export const LinkStyle = styled(Link)`
   text-decoration: none;
   font-size: 16px;
   font-weight: 600;

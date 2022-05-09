@@ -19,9 +19,9 @@ function Nav() {
         />
       </ContainerImage>
       <NavStyle>
-        <Link to="/">Home</Link>
-        <Link to="filmes">Filmes</Link>
-        <Link to="/">Login</Link>
+        <LinkStyle to="/">Home</LinkStyle>
+        <LinkStyle to="filmes">Filmes</LinkStyle>
+        <LinkStyle to="/">Login</LinkStyle>
       </NavStyle>
     </Container>
   );

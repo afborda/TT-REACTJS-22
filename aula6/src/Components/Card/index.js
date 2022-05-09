@@ -3,7 +3,7 @@ import { Button } from "../../style/global";
 
 import { Container, ContainerImage, Img, Title, SubTitle } from "./styled";
 
-function Card({ filme }) {
+function Card({ filme, onClick, textButton }) {
   return (
     <Container>
       <ContainerImage>
@@ -11,6 +11,7 @@ function Card({ filme }) {
       </ContainerImage>
       <Title>{filme.Title}</Title>
       <SubTitle>Tipo: {filme.Type}</SubTitle>
+      <Button onClick={onClick}>{textButton}</Button>
     </Container>
   );
 }

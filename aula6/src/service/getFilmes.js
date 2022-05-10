@@ -1,8 +1,8 @@
 import { api } from "./baseUrl";
 
-export const GetFilmes = async () => {
+export const GetFilmes = async (data) => {
   try {
-    const response = await api.get("?apikey=fa70f7a7&s=hulk");
+    const response = await api.get(`?apikey=fa70f7a7&s=${data}`);
     console.log("GetFilmes>>", response);
     return response.data.Search;
   } catch (error) {

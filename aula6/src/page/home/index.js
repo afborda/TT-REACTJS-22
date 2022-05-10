@@ -12,8 +12,8 @@ function Home() {
 
   const navigation = useNavigate();
 
-  const handleGetFilmes = async () => {
-    const response = await GetFilmes();
+  const handleGetFilmes = async (nomeFilme) => {
+    const response = await GetFilmes(nomeFilme);
     console.log(response);
     setFilmes(response);
   };
@@ -23,12 +23,11 @@ function Home() {
   };
 
   const handleName = (value) => {
-    console.log(value);
     setTitulo(value);
   };
 
   useEffect(() => {
-    handleGetFilmes();
+    handleGetFilmes("hulk");
   }, []);
 
   return (

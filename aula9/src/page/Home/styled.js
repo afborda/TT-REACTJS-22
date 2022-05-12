@@ -14,7 +14,6 @@ export const ContainerBox = styled.div`
   background-color: #005875;
   border-radius: 10px;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
 `;

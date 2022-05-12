@@ -13,6 +13,9 @@ import {
 } from "./styled";
 import CardTask from "../../components/CardTask";
 import { GetTasks } from "../../service/getTasks";
+import { AddTask } from "../../service/postTasks";
+import { DeleteTask } from "../../service/deleteTask";
+import { updateTask } from "../../service/putTask";
 
 function Home() {
   const [task, setTask] = useState("");
@@ -20,8 +23,39 @@ function Home() {
 
   const handleGetTasks = async () => {
     const response = await GetTasks();
-    console.log(response);
-    setListTasks(response);
+
+    if (response) {
+      setListTasks(response);
+    }
+  };
+
+  const handleAddTodoList = async (event) => {
+    event.preventDefault();
+
+    const data = {
+      task: task,
+      done: false,
+      createdAt: new Date()
+    };
+
+    await AddTask(data);
+
+    setTask("");
+    handleGetTasks();
+  };
+
+  const deleteTask = async (id) => {
+    await DeleteTask(id);
+    handleGetTasks();
+  };
+
+  const handleUpdateTask = async (item) => {
+    const data = {
+      done: !item.done
+    };
+
+    await updateTask(item.id, data);
+    handleGetTasks();
   };
 
   useEffect(() => {
@@ -41,12 +75,21 @@ function Home() {
             value={task}
             onChange={(event) => setTask(event.target.value)}
           />
-          <Button>
+          <Button onClick={handleAddTodoList}>
             <img src={AddIcons} alt="Botão de adicionar task" />
           </Button>
         </ContainerForm>
-
-        <CardTask />
+        {listTasks.map((item) => {
+          return (
+            <div key={item.id}>
+              <CardTask
+                data={item}
+                onClick={() => deleteTask(item.id)}
+                onDone={() => handleUpdateTask(item)}
+              />
+            </div>
+          );
+        })}
       </ContainerBox>
     </Container>
   );
